@@ -1,3 +1,5 @@
+const LOGO = "/images/skane-ifc-logo.png";
+
 const MAIL_INTEREST =
   "mailto:hello@skaneifc.com?subject=Interest%20in%20Sk%C3%A5ne%20International%20Founders%20Club";
 const MAIL_GENERAL = "mailto:hello@skaneifc.com";
@@ -18,7 +20,7 @@ export default function Home() {
             href="#main"
             className="flex items-center gap-3 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <img src="/images/SIF Club-Gemini3.png" alt="" width={44} height={44} />
+            <img src={LOGO} alt="" width={44} height={44} />
             <span className="text-sm font-medium tracking-wide text-body">
               <span className="font-display text-ink">Skåne IFC</span>
               <span className="mx-2 text-accent/40" aria-hidden="true">
@@ -66,8 +68,8 @@ export default function Home() {
             <div>
               <div className="mb-8 flex justify-center lg:hidden">
                 <img
-                  src="/images/SIF Club-Gemini3.png"
-                  alt="Skåne International Founders Club"
+                  src={LOGO}
+                  alt="Skåne IFC"
                   width={176}
                   height={176}
                 />
@@ -108,8 +110,8 @@ export default function Home() {
             >
               <div className="rounded-2xl border border-line bg-white p-8 shadow-[0_8px_32px_rgba(26,36,56,0.08)]">
                 <img
-                  src="/images/SIF Club-Gemini3.png"
-                  alt="Skåne International Founders Club"
+                  src={LOGO}
+                  alt="Skåne IFC"
                   width={280}
                   height={280}
                 />
@@ -310,7 +312,7 @@ export default function Home() {
       <footer className="border-t border-line bg-ink-deep py-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div className="flex items-center gap-4">
-            <img src="/images/SIF Club-Gemini3.png" alt="" width={44} height={44} />
+            <img src={LOGO} alt="" width={44} height={44} />
             <p className="text-sm text-body">
             © {new Date().getFullYear()} Skåne International Founders Club ·{" "}
             <span className="text-ink/70">skaneifc.com</span>

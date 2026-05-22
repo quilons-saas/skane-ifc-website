@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     "A QUILONS AI for expats and international entrepreneurs building in Skåne.",
   metadataBase: new URL(siteUrl),
   icons: {
-    icon: "/images/SIF Club-Gemini3.png",
-    apple: "/images/SIF Club-Gemini3.png",
+    icon: "/images/skane-ifc-logo.png",
+    apple: "/images/skane-ifc-logo.png",
   },
   openGraph: {
     title: "Skåne International Founders Club",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/SIF Club-Gemini3.png",
-        alt: "Skåne International Founders Club — SIF Club logo",
+        url: "/images/skane-ifc-logo.png",
+        alt: "Skåne IFC logo",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Skåne International Founders Club",
     description:
       "A QUILONS AI for expats and international entrepreneurs building in Skåne.",
-    images: ["/images/SIF Club-Gemini3.png"],
+    images: ["/images/skane-ifc-logo.png"],
   },
 };
 
