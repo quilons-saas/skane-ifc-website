@@ -17,19 +17,22 @@ const display = Fraunces({
 const siteUrl = "https://skaneifc.com";
 
 export const metadata: Metadata = {
-  title: "Skåne International Founders Club",
+  title: {
+    default: "Skåne IFC — Skåne International Founders Club",
+    template: "%s — Skåne IFC",
+  },
   description:
-    "A QUILONS AI for expats and international entrepreneurs building in Skåne.",
+    "Skåne IFC (Skåne International Founders Club) — a QUILONS AI community initiative for expats and international entrepreneurs building in Skåne.",
   metadataBase: new URL(siteUrl),
   icons: {
     icon: "/images/skane-ifc-logo.png",
     apple: "/images/skane-ifc-logo.png",
   },
   openGraph: {
-    title: "Skåne International Founders Club",
+    title: "Skåne IFC — Skåne International Founders Club",
     description:
-      "A QUILONS AI for expats and international entrepreneurs building in Skåne.",
-    siteName: "Skåne International Founders Club",
+      "A QUILONS AI community initiative for expats and international entrepreneurs building in Skåne.",
+    siteName: "Skåne IFC",
     url: siteUrl,
     type: "website",
     locale: "en_US",
@@ -42,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Skåne International Founders Club",
+    title: "Skåne IFC — Skåne International Founders Club",
     description:
-      "A QUILONS AI for expats and international entrepreneurs building in Skåne.",
+      "A QUILONS AI community initiative for expats and international entrepreneurs building in Skåne.",
     images: ["/images/skane-ifc-logo.png"],
   },
 };

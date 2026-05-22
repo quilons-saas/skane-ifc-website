@@ -1,53 +1,23 @@
-const LOGO = "/images/skane-ifc-logo.png";
-
-const MAIL_INTEREST =
-  "mailto:hello@skaneifc.com?subject=Interest%20in%20Sk%C3%A5ne%20International%20Founders%20Club";
-const MAIL_GENERAL = "mailto:hello@skaneifc.com";
+import Link from "next/link";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SkipLink } from "@/components/SkipLink";
+import {
+  LOGO,
+  MAIL_GENERAL,
+  MAIL_INTEREST,
+  SITE_DOMAIN,
+  SITE_FULL_NAME,
+  SITE_NAME,
+} from "@/lib/site";
 
 export default function Home() {
   return (
     <>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-paper focus:px-4 focus:py-2 focus:text-ink focus:shadow-lg"
-      >
-        Skip to main content
-      </a>
-
-      <header className="border-b border-line bg-paper/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
-          <a
-            href="#main"
-            className="flex items-center gap-3 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            <img src={LOGO} alt="" width={44} height={44} />
-            <span className="text-sm font-medium tracking-wide text-body">
-              <span className="font-display text-ink">Skåne IFC</span>
-              <span className="mx-2 text-accent/40" aria-hidden="true">
-                ·
-              </span>
-              <span className="hidden sm:inline">skaneifc.com</span>
-            </span>
-          </a>
-          <nav aria-label="Primary" className="flex items-center gap-3 text-sm">
-            <a
-              href="#mission"
-              className="rounded-md px-2 py-1 text-body transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              Mission
-            </a>
-            <a
-              href="#contact"
-              className="rounded-md px-2 py-1 text-body transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SkipLink />
+      <SiteHeader />
 
       <main id="main">
-        {/* Hero */}
         <section
           className="relative overflow-hidden border-b border-line bg-hero-warm"
           aria-labelledby="hero-heading"
@@ -67,26 +37,23 @@ export default function Home() {
           <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] lg:items-center lg:gap-10 lg:py-24">
             <div>
               <div className="mb-8 flex justify-center lg:hidden">
-                <img
-                  src={LOGO}
-                  alt="Skåne IFC"
-                  width={176}
-                  height={176}
-                />
+                <img src={LOGO} alt={SITE_NAME} width={176} height={176} />
               </div>
-              <p className="section-label">Skåne IFC · skaneifc.com</p>
+              <p className="section-label">
+                {SITE_NAME} · {SITE_DOMAIN}
+              </p>
               <h1
                 id="hero-heading"
                 className="font-display text-4xl font-medium leading-tight tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
               >
-                Skåne International Founders Club
+                {SITE_FULL_NAME}
               </h1>
               <p className="mt-6 max-w-measure text-xl leading-relaxed text-body sm:text-2xl sm:leading-snug">
                 A community for expats and international entrepreneurs building
                 businesses, networks, and lives in Skåne.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-body">
-                A QUILONS AI
+                A QUILONS AI community initiative
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
@@ -95,26 +62,21 @@ export default function Home() {
                 >
                   Join the interest list
                 </a>
-                <a
-                  href="#mission"
+                <Link
+                  href="/about"
                   className="inline-flex items-center justify-center rounded-lg border border-line bg-white px-6 py-3 text-center text-base font-medium text-ink transition-colors hover:border-accent/50 hover:bg-accent-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
                   Learn more
-                </a>
+                </Link>
               </div>
             </div>
 
             <aside
               className="relative hidden lg:block"
-              aria-label="Skåne International Founders Club emblem"
+              aria-label={SITE_NAME}
             >
               <div className="rounded-2xl border border-line bg-white p-8 shadow-[0_8px_32px_rgba(26,36,56,0.08)]">
-                <img
-                  src={LOGO}
-                  alt="Skåne IFC"
-                  width={280}
-                  height={280}
-                />
+                <img src={LOGO} alt={SITE_NAME} width={280} height={280} />
                 <ul className="mt-8 space-y-3 border-t border-line pt-6 text-sm text-body">
                   {[
                     "Expat founders",
@@ -130,12 +92,20 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6 text-sm text-body">
+                  <Link href="/meetings" className="text-accent hover:underline">
+                    Meetings
+                  </Link>
+                  {" · "}
+                  <Link href="/events" className="text-accent hover:underline">
+                    Events
+                  </Link>
+                </p>
               </div>
             </aside>
           </div>
         </section>
 
-        {/* Mission */}
         <section
           id="mission"
           className="relative border-b border-line bg-section-warm"
@@ -154,14 +124,13 @@ export default function Home() {
                 business.
               </p>
               <p className="font-medium text-ink">
-                Skåne International Founders Club exists to make that journey less
-                lonely and more connected.
+                {SITE_NAME} exists to make that journey less lonely and more
+                connected.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Audience */}
         <section
           className="border-b border-line"
           aria-labelledby="audience-heading"
@@ -172,9 +141,9 @@ export default function Home() {
               Who this is for
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-prose">
-              The club is intentionally broad: founders who are new here, people who
-              have been here for years, and locals who want the ecosystem to work
-              better for everyone.
+              {SITE_NAME} is intentionally broad: founders who are new here,
+              people who have been here for years, and locals who want the
+              ecosystem to work better for everyone.
             </p>
             <ul className="mt-12 grid gap-6 sm:grid-cols-3">
               <li className="rounded-xl border border-line bg-white p-6 shadow-sm sm:p-7">
@@ -211,7 +180,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* What we will do */}
         <section
           className="relative border-b border-line bg-section-warm"
           aria-labelledby="activities-heading"
@@ -227,28 +195,46 @@ export default function Home() {
             </p>
             <ul className="mt-10 grid gap-4 sm:grid-cols-2">
               {[
-                "Founder interviews with people who are actually building here",
+                {
+                  text: "Founder meetings — practical peer conversations",
+                  href: "/meetings",
+                },
+                {
+                  text: "Events & sessions — stories and workshops",
+                  href: "/events",
+                },
                 "Practical guides on topics that come up again and again",
-                "Community meetups where conversation matters more than slides",
                 "Introductions and pathways into the local ecosystem",
                 "Open discussions about building a life and a business in Sweden",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 rounded-lg border border-line bg-white px-4 py-4 text-prose"
-                >
-                  <span
-                    className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent"
-                    aria-hidden="true"
-                  />
-                  <span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
+              ].map((item) => {
+                const label = typeof item === "string" ? item : item.text;
+                const href = typeof item === "string" ? undefined : item.href;
+                return (
+                  <li
+                    key={label}
+                    className="flex gap-3 rounded-lg border border-line bg-white px-4 py-4 text-prose"
+                  >
+                    <span
+                      className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent"
+                      aria-hidden="true"
+                    />
+                    {href ? (
+                      <Link
+                        href={href}
+                        className="leading-relaxed text-ink hover:text-accent"
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+                      <span className="leading-relaxed">{label}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
 
-        {/* QUILONS AI stewardship */}
         <section className="border-b border-line" aria-labelledby="stewardship-heading">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
             <p className="section-label">Stewardship</p>
@@ -257,24 +243,22 @@ export default function Home() {
             </h2>
             <div className="mt-8 max-w-measure space-y-6 text-lg text-prose">
               <p className="font-medium text-ink">
-                Skåne International Founders Club is created and stewarded by QUILONS AI
-                as a community initiative to support international founders in Skåne.
+                {SITE_FULL_NAME} is created and stewarded by QUILONS AI as a
+                community initiative to support international founders in Skåne.
               </p>
               <p>
                 The aim is simple: a stronger, better-connected international founder
                 ecosystem—grounded in real conversations and practical help.
               </p>
               <p>
-                QUILONS AI is visible here because someone needs to hold the thread—but
-                this is not a sales funnel. The center of gravity is the community:
-                usefulness, trust, and relationships come first; anything commercial
-                stays in the background unless it clearly serves that same goal.
+                QUILONS AI is visible here because someone needs to hold the
+                thread—but this is not a sales funnel. The center of gravity is the
+                community: usefulness, trust, and relationships come first.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Contact */}
         <section
           id="contact"
           className="bg-gradient-to-b from-ink-muted/80 to-paper"
@@ -288,18 +272,26 @@ export default function Home() {
               </h2>
               <p className="mt-4 max-w-measure text-lg text-prose">
                 Interested in joining, being interviewed, collaborating, or supporting
-                the initiative? Send a short note—we read every message.
+                {SITE_NAME}? Send a short note—we read every message.
               </p>
-              <a
-                href={MAIL_GENERAL}
-                className="mt-8 inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-base font-semibold text-ink transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                Contact us
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={MAIL_GENERAL}
+                  className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-base font-semibold text-ink transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  Contact us
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-line bg-white px-6 py-3 text-base font-medium text-ink transition-colors hover:border-accent/50 hover:bg-accent-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  Contact page
+                </Link>
+              </div>
               <p className="mt-6 text-sm text-body">
                 <a
                   href={MAIL_GENERAL}
-                  className="text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="text-accent underline-offset-4 hover:underline"
                 >
                   hello@skaneifc.com
                 </a>
@@ -309,20 +301,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-line bg-ink-deep py-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <div className="flex items-center gap-4">
-            <img src={LOGO} alt="" width={44} height={44} />
-            <p className="text-sm text-body">
-            © {new Date().getFullYear()} Skåne International Founders Club ·{" "}
-            <span className="text-ink/70">skaneifc.com</span>
-            </p>
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-body">
-            A QUILONS AI for international founders in Skåne.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
